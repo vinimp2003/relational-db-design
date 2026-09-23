@@ -1,12 +1,12 @@
-# Relational Database Design — Messaging App Schema
+# Relational Databases — Logical Design & SQL Queries
 
-A relational schema and query set for a messaging-app-style database (users, contacts,
-group chats, messages), from the Databases course at the University of Murcia. Oracle SQL,
-individually authored.
+Two separate exercises from the Databases course at the University of Murcia (Oracle SQL,
+individually authored). They don't share a schema — each is its own practice assignment.
 
-## Schema (`schema/logical-design.sql`)
+## P1 — Logical Design (`p1-logical-design/`)
 
-Logical design derived from an entity-relationship model, covering:
+A relational schema designed from scratch (entity-relationship model → logical design) for
+a messaging-app-style database:
 
 - `USUARIO` — application users
 - `CONTACTO` — the contact relationship between users
@@ -14,17 +14,22 @@ Logical design derived from an entity-relationship model, covering:
 - `CHAT_GRUPO` — group chats
 - `MENSAJE` — messages, linked to their sender and chat
 
-with primary keys, foreign keys, and constraints defined directly in the `CREATE TABLE`
-statements (rather than bolted on afterward), and the corresponding `DROP` statements in
-reverse dependency order for a clean re-run.
+Primary keys, foreign keys, and constraints are defined directly in the `CREATE TABLE`
+statements, with the corresponding `DROP` statements in reverse dependency order for a
+clean re-run.
 
-## Queries (`queries/`)
+## P2 — Queries (`p2-queries/`)
 
-SQL queries against the schema above, covering filtering, ordering, joins across the
-contact/message/chat relationships, aggregation, and date arithmetic (e.g. computing days
-since a user's last access).
+SQL queries written against a schema provided by the course for this exercise (a
+series/episode-tracking database: users, series, seasons, episodes, cast, and per-user
+"currently watching" / tagging / interest tables). The schema itself isn't included here
+since it wasn't authored by me — only the queries are.
+
+Covers filtering, ordering, joins across the show/cast/viewing-history relationships,
+aggregation, and date arithmetic (e.g. days since a user's last access).
 
 ## Running
 
-Designed for Oracle SQL (tested via Oracle's SQL environment used in the course). Run
-`schema/logical-design.sql` first to create the tables, then any file under `queries/`.
+Designed for Oracle SQL. `p1-logical-design/logical-design.sql` is self-contained and can
+be run on its own. The files under `p2-queries/` assume the course-provided schema for
+that exercise, which isn't included.
